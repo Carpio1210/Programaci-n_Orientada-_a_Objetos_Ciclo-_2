@@ -3,9 +3,6 @@
 #include <vector>
 #include <limits>
 #include <fstream>
-#include "json.hpp"
-
-using nlohmann::json;
 
 using namespace std;
 
@@ -100,15 +97,6 @@ void Biblioteca::agregarLibro(const Libro& nuevoLibro) {     // Definicion de la
         }
     }
     coleccion.push_back(nuevoLibro);
-    nlohmann::json j = {
-        {"titulo", nuevoLibro.titulo},
-        {"autor", nuevoLibro.autor},
-        {"genero", nuevoLibro.genero},
-        {"anioPublicacion", nuevoLibro.anioPublicacion},
-        {"estaDisponible", nuevoLibro.estaDisponible},
-        {"usuario", nuevoLibro.usuario}
-    };
-    std::ofstream("Reto_1.json", std::ios::app) << j.dump() << '\n';
     cout << "Libro registrado " << endl;
 }
 
